@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <title>Crear Nuevo Producto</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+        crossorigin="anonymous"
+    />
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Nuevo Producto</h2>
+        
+        <form action="/crear/guardar" method="post">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre:</label>
+                <input type="text" class="form-control" name="nombre" required>
+                {% if error_nombre %}
+                    <div class="text-danger">{{ error_nombre }}</div>
+                {% endif %}
+            </div>
+
+            <div class="mb-3">
+                <label for="categoría" class="form-label">Categoría:</label>
+                <input type="text" class="form-control" name="categoría" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="precio" class="form-label">Precio:</label>
+                <input type="number" step="0.01" class="form-control" name="precio" required>
+                {% if error_precio %}
+                    <div class="text-danger">{{ error_precio }}</div>
+                {% endif %}
+            </div>
+
+            <div class="mb-3">
+                <label for="stock" class="form-label">Stock:</label>
+                <input type="number" class="form-control" name="stock" required>
+                {% if error_stock %}
+                    <div class="text-danger">{{ error_stock }}</div>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar Producto</button>
+        </form>
+
+        <a href="/" class="btn btn-secondary mt-3">Volver al Inicio</a>
+    </div>
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIeYzI3FNt0IB+5JcPq6MfR8FVpNg8Jv0fElxFgpYt7X6AjoW6hM4lbF"
+        crossorigin="anonymous"
+    ></script>
+</body>
+</html>
